@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Inferno.Framework.Graphics;
 using OpenTK;
 using OpenTK.Graphics;
-using OpenTK.Graphics.ES20;
+using OpenTK.Graphics.OpenGL;
 
-namespace Inferno.Framework.Desktop.OpenTK.Tests
+namespace TestingNs
 {
     class Program
     {
@@ -19,15 +22,15 @@ namespace Inferno.Framework.Desktop.OpenTK.Tests
 
     public class Tests : GameWindow
     {
-        public Tests() : base(1280, // initial width
-        720, // initial height
-        GraphicsMode.Default,
-        "dreamstatecoding",  // initial title
-        GameWindowFlags.Default,
-        DisplayDevice.Default,
-        4, // OpenGL major version
-        0, // OpenGL minor version
-        GraphicsContextFlags.ForwardCompatible)
+        public Tests() : base(300, // initial width
+                            300, // initial height
+                            GraphicsMode.Default,
+                            "dreamstatecoding",  // initial title
+                            GameWindowFlags.Default,
+                            DisplayDevice.Default,
+                            4, // OpenGL major version
+                            0, // OpenGL minor version
+                            GraphicsContextFlags.ForwardCompatible)
         {
             Title += ": OpenGL Version: " + GL.GetString(StringName.Version);
         }
@@ -39,8 +42,14 @@ namespace Inferno.Framework.Desktop.OpenTK.Tests
 
         protected override void OnLoad(EventArgs e)
         {
+            GL.Enable(EnableCap.Texture2D);
+
             CursorVisible = true;
+
+            nthings = new Texture2D("nerdthings.png");
         }
+
+        Texture2D nthings;
 
         protected override void OnRenderFrame(FrameEventArgs e)
         {
@@ -48,11 +57,21 @@ namespace Inferno.Framework.Desktop.OpenTK.Tests
 
             Color4 backColor;
             backColor.A = 1.0f;
-            backColor.R = 0.1f;
-            backColor.G = 0.1f;
-            backColor.B = 0.3f;
+            backColor.R = 1f;
+            backColor.G = 1f;
+            backColor.B = 1f;
             GL.ClearColor(backColor);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+
+            //GL.LoadIdentity();
+
+            //GL.Translate(-1f, 0f, 0);
+
+            SpriteBatch.Begin();
+
+            SpriteBatch.Draw(nthings, new Inferno.Framework.Vector2(0f, 0f), 500f/Width, 500f/Height);
+
+            SpriteBatch.End();
 
             SwapBuffers();
         }

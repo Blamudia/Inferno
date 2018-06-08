@@ -9,7 +9,17 @@
     <Import_RootNamespace>Inferno.Framework</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\BatchItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\SpriteBatch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Texture2D.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Rectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Vector2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Vector3.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\Texture2D.OpenGL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Graphics\SpriteBatcher.OpenGL.cs" />
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{420C6FDA-FAFA-4093-82D2-9CA47EEDD73D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Inferno.Framework.Desktop.OpenTK.Tests</RootNamespace>
+    <RootNamespace>TestingNS</RootNamespace>
     <AssemblyName>Inferno.Framework.Desktop.OpenTK.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -59,6 +59,11 @@
       <Project>{fde1f9dd-1899-48c8-8a7b-1376cb0e7c35}</Project>
       <Name>Inferno.Framework.Desktop</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nerdthings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
